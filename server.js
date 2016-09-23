@@ -13,7 +13,8 @@ app.get('/:articleName',function(req,res){
    res.send(template(article[articleName]));
 });
 var article ={
-'article-One':{  title: 'ArticleOne',
+'article-One':{  
+    title: 'ArticleOne',
      heading: 'ARTICLE ONE',
      date: '22-SEPT-2016',
      content:` <p>This is article one</p>
