@@ -11,8 +11,8 @@ app.get('/', function (req, res) {
 app.get('/article-one',function(req,res){
    res.send(template(articleOne));
 });
-var articleOne ={
-     title: 'ArticleOne',
+var article ={
+articleOne:{  title: 'ArticleOne',
      heading: 'ARTICLE ONE',
      date: '22-SEPT-2016',
      content:` <p>This is article one</p>
@@ -21,7 +21,31 @@ var articleOne ={
     
     <p>This is article one</p>
     
-    <p>This is article one</p>`
+    <p>This is article one</p>`},
+    
+articleTwo:{  title: 'ArticleTwo',
+     heading: 'ARTICLE TWO',
+     date: '23-SEPT-2016',
+     content:` <p>This is article two</p>
+    
+    <p>This is article one</p>
+    
+    <p>This is article one</p>
+    
+    <p>This is article one</p>`},
+    
+articleThree:{  title: 'ArticleThree',
+     heading: 'ARTICLE THREE',
+     date: '24-SEPT-2016',
+     content:` <p>This is article three</p>
+    
+    <p>This is article one</p>
+    
+    <p>This is article one</p>
+    
+    <p>This is article one</p>`},
+
+ 
 };
 function template(data){
     var title=data.title;
@@ -56,11 +80,11 @@ function template(data){
 
 }
 app.get('/article-two',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+   res.send(template(articleTwo));
 });
 
 app.get('/article-three',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+   res.send(template(articleThree));
 });
 
 app.get('/ui/style.css', function (req, res) {
