@@ -8,11 +8,12 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one',function(req,res){
-   res.send(template(articleOne));
+app.get('/:articleName',function(req,res){
+    var articleName=req.params.articleName;
+   res.send(template(article[articleName]));
 });
 var article ={
-articleOne:{  title: 'ArticleOne',
+`article-One:{  title: 'ArticleOne',
      heading: 'ARTICLE ONE',
      date: '22-SEPT-2016',
      content:` <p>This is article one</p>
@@ -23,7 +24,8 @@ articleOne:{  title: 'ArticleOne',
     
     <p>This is article one</p>`},
     
-articleTwo:{  title: 'ArticleTwo',
+`article-Two:{  
+    title: 'ArticleTwo',
      heading: 'ARTICLE TWO',
      date: '23-SEPT-2016',
      content:` <p>This is article two</p>
@@ -34,7 +36,8 @@ articleTwo:{  title: 'ArticleTwo',
     
     <p>This is article one</p>`},
     
-articleThree:{  title: 'ArticleThree',
+`article-Three:{  
+    title: 'ArticleThree',
      heading: 'ARTICLE THREE',
      date: '24-SEPT-2016',
      content:` <p>This is article three</p>
@@ -79,13 +82,7 @@ function template(data){
                 return htmlTemplate
 
 }
-app.get('/article-two',function(req,res){
-   res.send(template(articleTwo));
-});
 
-app.get('/article-three',function(req,res){
-   res.send(template(articleThree));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
