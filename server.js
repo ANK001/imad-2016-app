@@ -58,7 +58,7 @@ function template(data){
 
 </body>
 </html>`;
-return htmTemplate;
+return htmlTemplate;
     
 };
 app.get('/article-one', function (req, res) {
