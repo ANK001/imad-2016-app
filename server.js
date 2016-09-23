@@ -10,9 +10,9 @@ app.get('/', function (req, res) {
 });
 app.get('/:articleName',function(req,res){
     var articleName=req.params.articleName;
-   res.send(template(article[articleName]));
+   res.send(template(articles[articleName]));
 });
-var article ={
+var articles ={
 'article-One':{  
     title: 'ArticleOne',
      heading: 'ARTICLE ONE',
