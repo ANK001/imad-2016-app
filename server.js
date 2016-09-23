@@ -8,82 +8,14 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/:articleName',function(req,res){
-    var articleName=req.params.articleName;
-   res.send(template(articles[articleName]));
+app.get('/ui/article-one.html',function(req,res)
+{
+ res.sendFile(path.join(__dirname,'ui','articel-one.html'))   
 });
-var articles ={
-'article-one':{  
-    title: 'ArticleOne',
-     heading: 'ARTICLE ONE',
-     date: '22-SEPT-2016',
-     content:` <p>This is article one</p>
-    
-    <p>This is article one</p>
-    
-    <p>This is article one</p>
-    
-    <p>This is article one</p>`},
-    
-'article-two':{  
-    title: 'ArticleTwo',
-     heading: 'ARTICLE TWO',
-     date: '23-SEPT-2016',
-     content:` <p>This is article two</p>
-    
-    <p>This is article one</p>
-    
-    <p>This is article one</p>
-    
-    <p>This is article one</p>`},
-    
-'article-three':{  
-    title: 'ArticleThree',
-     heading: 'ARTICLE THREE',
-     date: '24-SEPT-2016',
-     content:`<p>This is article three</p>
-    
-    <p>This is article one</p>
-    
-    <p>This is article one</p>
-    
-    <p>This is article one</p>`}
-
- 
-};
-function template(data){
-    var title=data.title;
-    var heading=data.heading;    
-    var date=data.date;
-    var content=data.content;
-    
-    var htmlTemplate=`
-                    <!Doctype html>
-                <head>
-                <title>${title}</title>
-                
-                <meta name="viewport" content="width=device-width,initialscale=1"/>
-                <link href="/ui/style.css" rel="stylesheet"/>
-                </head>
-                <body>
-                <div class="cont">
-                
-                    <div><a href="/">Home</a></div>
-                    <hr/>
-                    <h3>${heading}</h3>
-                    <div>${date}</div>
-                    <div>
-                    ${content}
-                            </div>
-                </div>
-                </body>
-                
-                </html>`
-                ;
-                return htmlTemplate
-
-}
-
+app.get('/ui/article-two.html',function(req,res)
+{
+ res.sendFile(path.join(__dirname,'ui','articel-two.html'))   
+});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
