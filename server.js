@@ -11,53 +11,50 @@ app.get('/', function (req, res) {
 app.get('/article-one',function(req,res){
    res.send(template(articleOne));
 });
-
-var articleOne={
-    title: 'article-one',
-    heading: 'ARTICLE ONE',
-    date: '22-sept-2016',
-    content:`
-    <p>This is article one</p>
+var articleOne ={
+     title: 'ArticleOne',
+     heading: 'ARTICLE ONE',
+     date: '22-SEPT-2016',
+     content:` <p>This is article one</p>
     
     <p>This is article one</p>
     
     <p>This is article one</p>
     
     <p>This is article one</p>`
+};
+function template(data){
+    var title=data.title;
+    var heading=data.heading;    
+    var date=data.date;
+    var content=data.content;
     
-    };
-    function template(data){
-        var title= data.title;
-        var heading=data.heading;
-        var date=  data.date;
-        var content=data.content;
-    
-                var htmlTemplate=`
+    var htmlTemplate=`
                     <!Doctype html>
-            <head>
-            <title>${title}</title>
-            
-            <meta name="viewport" content="width=device-width,initialscale=1"/>
-            <link href="/ui/style.css" rel="stylesheet"/>
-            </head>
-            <body>
-            <div class="cont">
-            
-                <div><a href="/">Home</a></div>
-                <hr/>
-                <h3>${heading}</h3>
-                <div>Sept 22,2016</div>
-                <div>
-                ${content}
+                <head>
+                <title>${title}</title>
+                
+                <meta name="viewport" content="width=device-width,initialscale=1"/>
+                <link href="/ui/style.css" rel="stylesheet"/>
+                </head>
+                <body>
+                <div class="cont">
+                
+                    <div><a href="/">Home</a></div>
+                    <hr/>
+                    <h3>${heading}</h3>
+                    <div>${date}</div>
+                    <div>
+                    ${content}
+                            </div>
                 </div>
-            </div>
-            </body>
-            
-            </html>`
-            ;
-            return htmlTemplate;
-            
-    }    
+                </body>
+                
+                </html>`
+                ;
+                return htmlTemplate
+
+}
 app.get('/article-two',function(req,res){
    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
 });
