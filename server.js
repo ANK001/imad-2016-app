@@ -32,10 +32,10 @@ var articles= {
     
 };
 function template(data){
-   data.title=title;
-   data.heading=heading;
-   data.date=date;
-   data.content=content;
+   var title=data.title;
+   var heading=data.heading;
+  var date= data.date;
+   var content=data.content;
    
    var htmlTemplate=`<!Doctype html>
 <head>
