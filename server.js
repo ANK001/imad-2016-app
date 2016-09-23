@@ -14,7 +14,7 @@ var  articlename=req.params.articlename;
 });
 
 var articles= {
-    'article-one': {
+    articleone: {
      title:"Article1",
      heading:"ARTICLE ONE",
      date:"22-09-16",
@@ -22,7 +22,7 @@ var articles= {
             <p>  This si article oone<p>`
             },
             
-      'article-two':{
+      articletwo:{
      title:"Article2",
      heading:"ARTICLE two",
      date:"22-09-16",
